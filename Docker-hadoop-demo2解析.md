@@ -70,14 +70,14 @@ RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' && \
     cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 
-**ssh-keygen -t rsa -f ~/.ssh/id_rsa -P ''**
-**ssh-keygen** 用于生成密钥
-**-t** :指定要创建的密钥类型，这里是rsa
-**-f** :指定用来保存密钥的文件名,这里其实没有必要，ssh-keygen -t rsa后本来就会生成公钥存储于~/.ssh/id_rsa中。
+**ssh-keygen -t rsa -f ~/.ssh/id_rsa -P ''**  
+**ssh-keygen** 用于生成密钥  
+**-t** :指定要创建的密钥类型，这里是rsa  
+**-f** :指定用来保存密钥的文件名,这里其实没有必要，ssh-keygen -t rsa后本来就会生成公钥存储于~/.ssh/id_rsa中。  
 **-P** :-P表示密码，-P '' 就表示空密码，也可以不用-P参数，这样就要三次回车，用-P就一次回车
 
-**cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys**
-**cat** 不多说了，实际就是查看刚生成的公钥
+**cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys**  
+**cat** 不多说了，实际就是查看刚生成的公钥  
 重点提下 **“>>"** 将内容追加至文件中，实际就是我们通过cat查看刚生成的密钥，之后通过>>将密钥追加保存于authorized_keys文件中。
 
 下一层**RUN**: 创建文件夹，实际上是创建对应于hadoop配置文件中指定的工作目录，这里创建不创建没有影响。
